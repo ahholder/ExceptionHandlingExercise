@@ -9,7 +9,7 @@ namespace ExceptionHandlingExercise
         static void Main(string[] args)
         {
             // -----------------------------------------------------------------------------
-            // First create an char[], it must contain 6 numbers and 3 letters - name it arr
+            // First create a char[], it must contain 6 numbers and 3 letters - name it arr
             // Create a list called numbers that will hold integers
             // Create an string variable with an empty string initializer - name it str
 
@@ -17,10 +17,26 @@ namespace ExceptionHandlingExercise
             // and Exceptions will be thrown 
             // Below we will set this up 
             // ------------------------------------------------------------------------------
-
+            char[] arr = new char[] { '7', '4', '2', '9', '0', '1', 'A', 'H', 'X' };
+            var numbers = new List<int>();
+            string str = "";
 
 
             //TODO START HERE:
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                try
+                {
+                    str = arr[i].ToString();
+                    int tempInt = int.Parse(str);
+                    numbers.Add(tempInt);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Unable to Parse '{arr[i]}'");
+                }
+            }
             
             // Make a foreach loop to iterate through your character array
             
@@ -39,10 +55,10 @@ namespace ExceptionHandlingExercise
                 
             
 
-            //foreach (var num in numbers)
-            //{
-            //    Console.WriteLine(num);
-            //}
+            foreach (var num in numbers)
+            {
+                Console.WriteLine(num);
+            }
         }
     }
 }
